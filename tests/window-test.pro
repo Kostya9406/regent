@@ -1,0 +1,11 @@
+QT += widgets dbus network testlib
+CONFIG += c++20 console testcase
+CONFIG -= app_bundle
+TARGET = window-test
+INCLUDEPATH += $$PWD/../src
+SOURCES += $$files($$PWD/../src/*.cpp, true)
+SOURCES -= $$PWD/../src/main.cpp
+SOURCES += $$PWD/window-test.cpp
+HEADERS += $$files($$PWD/../src/*.h, true)
+OBJECTS_DIR = obj
+MOC_DIR = moc

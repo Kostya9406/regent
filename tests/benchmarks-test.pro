@@ -1,0 +1,10 @@
+QT += widgets network dbus
+CONFIG += c++20 console testcase
+CONFIG -= app_bundle
+TEMPLATE = app
+TARGET = benchmarks-test
+INCLUDEPATH += $$PWD/../src
+SOURCES += $$PWD/benchmarks-test.cpp $$PWD/../src/core/Benchmarks.cpp $$PWD/../src/ui/pages/BenchmarksPage.cpp $$PWD/../src/ui/BenchmarkDashboard.cpp $$PWD/../src/ui/Theme.cpp $$PWD/../src/ui/OmarchyPalette.cpp
+HEADERS += $$PWD/../src/ui/Page.h $$PWD/../src/ui/BenchmarkDashboard.h $$PWD/../src/ui/OmarchyPalette.h
+OBJECTS_DIR = obj
+MOC_DIR = moc

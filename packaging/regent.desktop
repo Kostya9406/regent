@@ -1,0 +1,26 @@
+[Desktop Entry]
+Type=Application
+Name=Regent
+GenericName=Task Manager
+Comment=Keyboard-first system monitor and task manager
+Exec=regent
+Icon=regent
+Terminal=false
+Categories=System;Monitor;
+Keywords=process;task;monitor;cpu;memory;kill;systemd;
+StartupWMClass=regent
+Actions=Processes;ActiveWindow;Menu;
+
+# A second launch hands over to the running window, so binding a key to
+# `regent` summons it from anywhere.
+[Desktop Action Processes]
+Name=Processes
+Exec=regent --page processes
+
+[Desktop Action ActiveWindow]
+Name=Process of the focused window
+Exec=regent --active-window
+
+[Desktop Action Menu]
+Name=Pick a process
+Exec=regent menu

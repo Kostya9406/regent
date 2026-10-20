@@ -1,0 +1,10 @@
+QT += widgets
+CONFIG += c++20 console testcase
+CONFIG -= app_bundle
+TEMPLATE = app
+TARGET = flight-recorder-ui-test
+INCLUDEPATH += $$PWD/../src
+SOURCES += $$PWD/flight-recorder-ui-test.cpp $$PWD/../src/ui/pages/FlightRecorderPage.cpp $$PWD/../src/core/FlightRecorder.cpp $$PWD/../src/core/FlightReport.cpp $$PWD/../src/core/Settings.cpp $$PWD/../src/core/Fs.cpp $$PWD/../src/ui/Theme.cpp $$PWD/../src/ui/OmarchyPalette.cpp
+HEADERS += $$PWD/../src/ui/Page.h $$PWD/../src/ui/OmarchyPalette.h $$PWD/../src/core/Settings.h
+OBJECTS_DIR = obj
+MOC_DIR = moc

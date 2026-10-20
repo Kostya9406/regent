@@ -1,0 +1,31 @@
+# Maintainer: Kostya9406 <https://github.com/Kostya9406>
+pkgname=regent
+pkgver=0.6.0
+pkgrel=1
+pkgdesc="Keyboard-first task manager and system monitor for Omarchy and Hyprland"
+arch=('x86_64')
+url="https://github.com/Kostya9406/regent"
+license=('MIT')
+depends=('qt6-base' 'gcc-libs' 'glibc')
+optdepends=('ffmpeg: record a page as video'
+            'power-profiles-daemon: switch power profiles'
+            'hwdata: PCI and USB device names'
+            'hyprland: window columns, focus, move and close'
+            'nvidia-utils: GPU load on NVIDIA cards (nvidia-smi)')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+  cd "$pkgname-$pkgver"
+  mkdir -p build && cd build
+  qmake6 PREFIX=/usr \
+    QMAKE_CFLAGS_RELEASE="$CFLAGS" QMAKE_CXXFLAGS_RELEASE="$CXXFLAGS" QMAKE_LFLAGS_RELEASE="$LDFLAGS" \
+    ..
+  make
+}
+
+package() {
+  cd "$pkgname-$pkgver/build"
+  make INSTALL_ROOT="$pkgdir" install
+  install -Dm644 ../LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

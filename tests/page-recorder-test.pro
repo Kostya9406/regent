@@ -1,0 +1,10 @@
+QT += widgets
+CONFIG += c++20 console testcase
+CONFIG -= app_bundle
+TEMPLATE = app
+TARGET = page-recorder-test
+INCLUDEPATH += $$PWD/../src
+SOURCES += $$PWD/page-recorder-test.cpp $$PWD/../src/ui/PageRecorder.cpp
+HEADERS += $$PWD/../src/ui/PageRecorder.h
+OBJECTS_DIR = obj
+MOC_DIR = moc

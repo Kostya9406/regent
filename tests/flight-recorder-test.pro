@@ -1,0 +1,9 @@
+QT += core
+CONFIG += c++20 console testcase
+CONFIG -= app_bundle
+TEMPLATE = app
+TARGET = flight-recorder-test
+INCLUDEPATH += $$PWD/../src
+SOURCES += $$PWD/flight-recorder-test.cpp $$PWD/../src/core/FlightRecorder.cpp
+OBJECTS_DIR = obj
+MOC_DIR = moc

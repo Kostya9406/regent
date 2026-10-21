@@ -13,7 +13,7 @@ optdepends=('ffmpeg: record a page as video'
             'hyprland: window columns, focus, move and close'
             'nvidia-utils: GPU load on NVIDIA cards (nvidia-smi)')
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('SKIP')
+sha256sums=('e642f16f4bdb6615051a1a435547a526a750dd44bacf26c538a5017449be7828')
 
 build() {
   cd "$pkgname-$pkgver"

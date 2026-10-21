@@ -36,13 +36,19 @@
 
 ## Установка
 
-Из AUR:
+На Arch и Omarchy — пакетом со [страницы релиза](https://github.com/Kostya9406/regent/releases/latest):
 
 ```bash
-yay -S regent
+sudo pacman -U https://github.com/Kostya9406/regent/releases/download/v0.6.0/regent-0.6.0-1-x86_64.pkg.tar.zst
 ```
 
-Или собрать самому. Нужны `qt6-base` и компилятор C++20 (cmake не требуется):
+Или собрать тот же пакет из PKGBUILD:
+
+```bash
+git clone https://github.com/Kostya9406/regent && cd regent/packaging && makepkg -si
+```
+
+Или собрать вручную. Нужны `qt6-base` и компилятор C++20 (cmake не требуется):
 
 ```bash
 mkdir -p build && cd build
@@ -174,7 +180,7 @@ src/core/      сбор данных и действия, без GUI
   Cli            top / kill / menu / --fields
   Startup, Inventory, HwIds, Connections, DiskScan, Benchmarks, Json, Settings
 src/ui/        оболочка (MainWindow), палитра команд, Vim-клавиши, тема, рисованные виджеты, страницы
-packaging/     regent.desktop, regent.svg, PKGBUILD для AUR
+packaging/     regent.desktop, regent.svg, PKGBUILD
 tests/         проверки, см. tests/README.md (все разом — tests/run-all.sh)
 ```
 

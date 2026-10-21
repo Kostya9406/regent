@@ -28,13 +28,19 @@ Dangerous actions are fenced: the compositor, the shell, polkit, portals, the se
 
 ## Install
 
-From the AUR:
+On Arch and Omarchy, the package from the [release page](https://github.com/Kostya9406/regent/releases/latest):
 
 ```bash
-yay -S regent
+sudo pacman -U https://github.com/Kostya9406/regent/releases/download/v0.6.0/regent-0.6.0-1-x86_64.pkg.tar.zst
 ```
 
-Or build it yourself. It needs `qt6-base` and a C++20 compiler (no CMake):
+Or build the same package from its PKGBUILD:
+
+```bash
+git clone https://github.com/Kostya9406/regent && cd regent/packaging && makepkg -si
+```
+
+Or build it by hand. It needs `qt6-base` and a C++20 compiler (no CMake):
 
 ```bash
 mkdir -p build && cd build
@@ -145,7 +151,7 @@ src/core/      data and actions, no GUI
   Cli            top / kill / menu / --fields
   Startup, Inventory, HwIds, Connections, DiskScan, Benchmarks, Json, Settings
 src/ui/        shell (MainWindow), command palette, Vim keys, theme, drawn widgets, pages
-packaging/     regent.desktop, regent.svg, AUR PKGBUILD
+packaging/     regent.desktop, regent.svg, PKGBUILD
 tests/         tests, see tests/README.md (tests/run-all.sh runs them all)
 ```
 

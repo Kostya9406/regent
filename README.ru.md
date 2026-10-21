@@ -36,16 +36,18 @@
 
 ## Установка
 
-На Arch и Omarchy — пакетом со [страницы релиза](https://github.com/Kostya9406/regent/releases/latest):
+На Arch и Omarchy — пакетом 0.6.0 со [страницы релиза](https://github.com/Kostya9406/regent/releases/tag/v0.6.0), сверив его SHA256 перед установкой:
 
 ```bash
-sudo pacman -U https://github.com/Kostya9406/regent/releases/download/v0.6.0/regent-0.6.0-1-x86_64.pkg.tar.zst
+curl -LO https://github.com/Kostya9406/regent/releases/download/v0.6.0/regent-0.6.0-1-x86_64.pkg.tar.zst
+echo "089896f1ad0cf752df3d008acf67ca6ff4b58a7d0eb8eb033b344b4757df1547  regent-0.6.0-1-x86_64.pkg.tar.zst" | sha256sum -c && sudo pacman -U ./regent-0.6.0-1-x86_64.pkg.tar.zst
 ```
 
-Или собрать тот же пакет из PKGBUILD:
+Или собрать тот же пакет из PKGBUILD зафиксированного коммита (в нём закреплён и SHA256 архива исходников):
 
 ```bash
-git clone https://github.com/Kostya9406/regent && cd regent/packaging && makepkg -si
+git clone https://github.com/Kostya9406/regent && cd regent
+git checkout 08015990516e5ef4f1883866077f2ef80b071ee0 && cd packaging && makepkg -si
 ```
 
 Или собрать вручную. Нужны `qt6-base` и компилятор C++20 (cmake не требуется):

@@ -28,16 +28,18 @@ Dangerous actions are fenced: the compositor, the shell, polkit, portals, the se
 
 ## Install
 
-On Arch and Omarchy, the package from the [release page](https://github.com/Kostya9406/regent/releases/latest):
+On Arch and Omarchy, the 0.6.0 package from the [release page](https://github.com/Kostya9406/regent/releases/tag/v0.6.0), checked against its SHA256 before it is installed:
 
 ```bash
-sudo pacman -U https://github.com/Kostya9406/regent/releases/download/v0.6.0/regent-0.6.0-1-x86_64.pkg.tar.zst
+curl -LO https://github.com/Kostya9406/regent/releases/download/v0.6.0/regent-0.6.0-1-x86_64.pkg.tar.zst
+echo "089896f1ad0cf752df3d008acf67ca6ff4b58a7d0eb8eb033b344b4757df1547  regent-0.6.0-1-x86_64.pkg.tar.zst" | sha256sum -c && sudo pacman -U ./regent-0.6.0-1-x86_64.pkg.tar.zst
 ```
 
-Or build the same package from its PKGBUILD:
+Or build the same package from the PKGBUILD of a fixed commit (it pins the source archive's SHA256 too):
 
 ```bash
-git clone https://github.com/Kostya9406/regent && cd regent/packaging && makepkg -si
+git clone https://github.com/Kostya9406/regent && cd regent
+git checkout 08015990516e5ef4f1883866077f2ef80b071ee0 && cd packaging && makepkg -si
 ```
 
 Or build it by hand. It needs `qt6-base` and a C++20 compiler (no CMake):
